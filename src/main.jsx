@@ -1,14 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles'; // ✅ dùng lại Experimental_
 import theme from './theme';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
+    <CssVarsProvider
+      theme={theme}
+       // ✅ Cho phép toggle giữa light/dark
+    >
       <CssBaseline />
       <App />
-    </ThemeProvider> 
+    </CssVarsProvider>
   </StrictMode>,
-)
+);
