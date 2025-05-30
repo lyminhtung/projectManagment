@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CssVarsProvider
       theme={theme}
-       // ✅ Cho phép toggle giữa light/dark
+
     >
       <CssBaseline />
       <App />
