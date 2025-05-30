@@ -8,11 +8,9 @@ import theme from './theme';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CssVarsProvider
-      theme={theme}
-
-    >
-      <CssBaseline />
-      <App />
+      theme={theme}>
+    <CssBaseline />
+    <App />
     </CssVarsProvider>
   </StrictMode>,
 );
