@@ -4,13 +4,22 @@ function BoardContent() {
   return (
     <div>
       <Box sx={{
-        backgroundColor : 'white',
+        bgcolor:(theme)=>theme.palette.mode ==='dark' ? '#34495e' : '#1976d2',
         width : '100%',
         height :(theme) => `calc(100vh - ${theme.projectCustom.appBarHeight} - ${theme.projectCustom.boardBarHeight})` ,
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderTop: '1px solid white'
        }}>
-        Board contains
+        {/*Box column */}
+        <Box sx={{
+          maxWidth:'300px',
+          minWidth:'300px',
+          bgcolor:(theme)=>theme.palette.mode ==='dark' ? '#333643' : '#ebecf0',
+          ml:2,
+          borderRadius:'6px'
+          }}>
+        </Box>
       </Box>
     </div>
   )
