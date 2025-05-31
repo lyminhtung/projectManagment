@@ -24,26 +24,31 @@ function AppBar() {
         height : (theme) => theme.projectCustom.appBarHeight,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        gap: 2,
+        overflowX: 'auto'
      }}>
         <Box sx={{display: 'flex', alignItems: 'center', gap : 2}}>
             <AppsIcon sx={{color: 'white'}}/>
             <Box sx={{display: 'flex', alignItems: 'center', gap : 0.5}}>
-                <img src={trellow} alt="Logo Trellow" />
+                <img src={trellow} alt="Logo Trellow" sizes='small' />
                 <Typography variant='span' sx={{fontSize:'1.2rem', fontWeight: "bold", color:'white'}}>Trello</Typography>
             </Box>
-            <Box>
-                <Workspaces/>
+            <Box sx={{display: {xs :'none' , md:'flex'}, gap:1}}>
+                <Box>
+                    <Workspaces/>
+                </Box>
+                <Box>
+                    <Recent/>
+                </Box>
+                <Box>
+                    <Started/>
+                </Box> 
+                <Box>
+                    <Templates/>
+                </Box>  
             </Box>
-            <Box>
-                <Recent/>
-            </Box>
-            <Box>
-                <Started/>
-            </Box> 
-            <Box>
-                <Templates/>
-            </Box>  
+            
             <Box>
                 <Button variant="outlined" href="#outlined-buttons" sx={{color: 'white', border: '0.5px solid white'}}>
                     <span color='white'>Create</span>
@@ -51,7 +56,7 @@ function AppBar() {
             </Box>               
         </Box>
         <Box sx={{display: 'flex', alignItems:'center', gap:2}}>
-            <TextField id="outlined-search" label="Search field" type="search" size='small' sx={{color : 'white'}}/>
+            <TextField id="outlined-search" label="Search field" type="search" size='small' sx={{minWidth: '120px'}}/>
             <ModeSelect/>
             <Badge color="secondary" variant="dot">
                 <MailIcon />
