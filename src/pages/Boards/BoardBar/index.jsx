@@ -18,7 +18,7 @@ const Menu_Style = {
   paddingX:'5px',
   borderRadius:'4px',
   '& .MuiSvgIcon-root':{
-    color:'primary.main'
+    color:'white'
   },
   '&:hover': {
     bgcolor:'primary.50'
@@ -96,37 +96,37 @@ function BoardBar() {
             <Tooltip title='Ly Tung'>
               <Avatar 
               alt="Ly Tung" 
-              src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEVdRLKo1M9zbzVbFU7ZZMH5MvMOx45yKzky8w7HjnIrI1qO3eq36Tl8l-kUK_hiNRzBshiU80OLGJrxgy4hgPa&_nc_ohc=4bsDIL3BhKMQ7kNvwFF0oye&_nc_oc=AdmvypuujQpAT4T_l81tA9QekM4gfGZtRCl0wxKW2FK3k3m2owN3iWTUwDcor4Ty2pg&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=u9PQNb13_zRAJ34OFJT0KA&oh=00_AfK-XfeT80IVgp3YS1sC_D5f-zLmagqOFf1Imw6xKgAdXA&oe=683F71B5" 
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=r4U6sja5NygQ7kNvwHGWxXT&_nc_oc=AdnFIllfQptxSXCCTaIpuU-b0N2wWQlhGHOtQ-NRwWDtKEoH4FDTZRGrYBbg-rXvG-quoMSVDHEYUgpx0q33Q93A&_nc_zt=24&_nc_ht=scontent.fhan14-5.fna&_nc_gid=yBQJUipNrFIdlZ1bw87r6w&oh=00_AfOnDB73EWgLkw5udumElseOHjRCz_rQGpSmd5CUE1Br8Q&oe=6852FFF5" 
               />
             </Tooltip>
             <Tooltip title='Ly Tung'>
               <Avatar 
               alt="Ly Tung" 
-              src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEVdRLKo1M9zbzVbFU7ZZMH5MvMOx45yKzky8w7HjnIrI1qO3eq36Tl8l-kUK_hiNRzBshiU80OLGJrxgy4hgPa&_nc_ohc=4bsDIL3BhKMQ7kNvwFF0oye&_nc_oc=AdmvypuujQpAT4T_l81tA9QekM4gfGZtRCl0wxKW2FK3k3m2owN3iWTUwDcor4Ty2pg&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=u9PQNb13_zRAJ34OFJT0KA&oh=00_AfK-XfeT80IVgp3YS1sC_D5f-zLmagqOFf1Imw6xKgAdXA&oe=683F71B5" 
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=r4U6sja5NygQ7kNvwHGWxXT&_nc_oc=AdnFIllfQptxSXCCTaIpuU-b0N2wWQlhGHOtQ-NRwWDtKEoH4FDTZRGrYBbg-rXvG-quoMSVDHEYUgpx0q33Q93A&_nc_zt=24&_nc_ht=scontent.fhan14-5.fna&_nc_gid=yBQJUipNrFIdlZ1bw87r6w&oh=00_AfOnDB73EWgLkw5udumElseOHjRCz_rQGpSmd5CUE1Br8Q&oe=6852FFF5" 
               />
             </Tooltip>
             <Tooltip title='Ly Tung'>
               <Avatar 
               alt="Ly Tung" 
-              src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEVdRLKo1M9zbzVbFU7ZZMH5MvMOx45yKzky8w7HjnIrI1qO3eq36Tl8l-kUK_hiNRzBshiU80OLGJrxgy4hgPa&_nc_ohc=4bsDIL3BhKMQ7kNvwFF0oye&_nc_oc=AdmvypuujQpAT4T_l81tA9QekM4gfGZtRCl0wxKW2FK3k3m2owN3iWTUwDcor4Ty2pg&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=u9PQNb13_zRAJ34OFJT0KA&oh=00_AfK-XfeT80IVgp3YS1sC_D5f-zLmagqOFf1Imw6xKgAdXA&oe=683F71B5" 
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=r4U6sja5NygQ7kNvwHGWxXT&_nc_oc=AdnFIllfQptxSXCCTaIpuU-b0N2wWQlhGHOtQ-NRwWDtKEoH4FDTZRGrYBbg-rXvG-quoMSVDHEYUgpx0q33Q93A&_nc_zt=24&_nc_ht=scontent.fhan14-5.fna&_nc_gid=yBQJUipNrFIdlZ1bw87r6w&oh=00_AfOnDB73EWgLkw5udumElseOHjRCz_rQGpSmd5CUE1Br8Q&oe=6852FFF5" 
               />
             </Tooltip>
             <Tooltip title='Ly Tung'>
               <Avatar 
               alt="Ly Tung" 
-              src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEVdRLKo1M9zbzVbFU7ZZMH5MvMOx45yKzky8w7HjnIrI1qO3eq36Tl8l-kUK_hiNRzBshiU80OLGJrxgy4hgPa&_nc_ohc=4bsDIL3BhKMQ7kNvwFF0oye&_nc_oc=AdmvypuujQpAT4T_l81tA9QekM4gfGZtRCl0wxKW2FK3k3m2owN3iWTUwDcor4Ty2pg&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=u9PQNb13_zRAJ34OFJT0KA&oh=00_AfK-XfeT80IVgp3YS1sC_D5f-zLmagqOFf1Imw6xKgAdXA&oe=683F71B5" 
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=r4U6sja5NygQ7kNvwHGWxXT&_nc_oc=AdnFIllfQptxSXCCTaIpuU-b0N2wWQlhGHOtQ-NRwWDtKEoH4FDTZRGrYBbg-rXvG-quoMSVDHEYUgpx0q33Q93A&_nc_zt=24&_nc_ht=scontent.fhan14-5.fna&_nc_gid=yBQJUipNrFIdlZ1bw87r6w&oh=00_AfOnDB73EWgLkw5udumElseOHjRCz_rQGpSmd5CUE1Br8Q&oe=6852FFF5" 
               />
             </Tooltip>
             <Tooltip title='Ly Tung'>
               <Avatar 
               alt="Ly Tung" 
-              src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEVdRLKo1M9zbzVbFU7ZZMH5MvMOx45yKzky8w7HjnIrI1qO3eq36Tl8l-kUK_hiNRzBshiU80OLGJrxgy4hgPa&_nc_ohc=4bsDIL3BhKMQ7kNvwFF0oye&_nc_oc=AdmvypuujQpAT4T_l81tA9QekM4gfGZtRCl0wxKW2FK3k3m2owN3iWTUwDcor4Ty2pg&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=u9PQNb13_zRAJ34OFJT0KA&oh=00_AfK-XfeT80IVgp3YS1sC_D5f-zLmagqOFf1Imw6xKgAdXA&oe=683F71B5" 
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=r4U6sja5NygQ7kNvwHGWxXT&_nc_oc=AdnFIllfQptxSXCCTaIpuU-b0N2wWQlhGHOtQ-NRwWDtKEoH4FDTZRGrYBbg-rXvG-quoMSVDHEYUgpx0q33Q93A&_nc_zt=24&_nc_ht=scontent.fhan14-5.fna&_nc_gid=yBQJUipNrFIdlZ1bw87r6w&oh=00_AfOnDB73EWgLkw5udumElseOHjRCz_rQGpSmd5CUE1Br8Q&oe=6852FFF5" 
               />
             </Tooltip>
             <Tooltip title='Ly Tung'>
               <Avatar 
               alt="Ly Tung" 
-              src="https://scontent.fhan12-1.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEVdRLKo1M9zbzVbFU7ZZMH5MvMOx45yKzky8w7HjnIrI1qO3eq36Tl8l-kUK_hiNRzBshiU80OLGJrxgy4hgPa&_nc_ohc=4bsDIL3BhKMQ7kNvwFF0oye&_nc_oc=AdmvypuujQpAT4T_l81tA9QekM4gfGZtRCl0wxKW2FK3k3m2owN3iWTUwDcor4Ty2pg&_nc_zt=24&_nc_ht=scontent.fhan12-1.fna&_nc_gid=u9PQNb13_zRAJ34OFJT0KA&oh=00_AfK-XfeT80IVgp3YS1sC_D5f-zLmagqOFf1Imw6xKgAdXA&oe=683F71B5" 
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-1/480735598_1608056836582249_5953629244909746237_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=r4U6sja5NygQ7kNvwHGWxXT&_nc_oc=AdnFIllfQptxSXCCTaIpuU-b0N2wWQlhGHOtQ-NRwWDtKEoH4FDTZRGrYBbg-rXvG-quoMSVDHEYUgpx0q33Q93A&_nc_zt=24&_nc_ht=scontent.fhan14-5.fna&_nc_gid=yBQJUipNrFIdlZ1bw87r6w&oh=00_AfOnDB73EWgLkw5udumElseOHjRCz_rQGpSmd5CUE1Br8Q&oe=6852FFF5" 
               />
             </Tooltip>
           </AvatarGroup>
