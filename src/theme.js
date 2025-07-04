@@ -59,6 +59,32 @@ const theme = extendTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          '&.MuiTypography-body1':{
+            fontSize:'0.875rem'
+          }
+        }
+      }
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          '*::-webkit-scrollbar':{
+            width:'8px',
+            height:'8px'
+          },
+          '*::-webkit-scrollbar-thumb':{
+            backgroundColor:'#dcdde1',
+            borderRadius:'4px'
+          },
+          '*::-webkit-scrollbar-thumb:hover':{
+            backgroundColor:'white',
+          }
+        }
+      }
+    }
   },
   
 });
