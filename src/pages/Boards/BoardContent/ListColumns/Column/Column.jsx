@@ -17,7 +17,21 @@ import { Attachment, DragHandle, ModeComment } from '@mui/icons-material';
 import ListCards from './ListCards/ListCards';
 import Box from '@mui/material/Box';
 import { mapOrder } from '~/utils/sorts';
+import {useSortable} from '@dnd-kit/sortable';
+import {CSS} from '@dnd-kit/utilities';
+
 function Column({column}) {
+    const {attributes,listeners,setNodeRef,transform,transition,} = useSortable({
+      id: column._id,
+      data:{...column}
+    });
+    
+    const dndKitColumnStyle = {
+      touchAction: 'none',
+      transform: CSS.Translate.toString(transform),
+      transition,
+    };
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -27,9 +41,13 @@ function Column({column}) {
       setAnchorEl(null);
     };
     const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
-  return (
-    
-    <Box sx={{
+  return (  
+    <Box 
+        ref={setNodeRef}
+        style={dndKitColumnStyle}
+        {...attributes}
+        {...listeners}
+        sx={{
         maxWidth:'300px',
         minWidth:'300px',
         bgcolor:(theme)=>theme.palette.mode ==='dark' ? '#333643' : '#ebecf0',
