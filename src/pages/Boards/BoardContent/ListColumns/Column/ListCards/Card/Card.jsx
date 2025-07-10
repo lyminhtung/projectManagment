@@ -7,21 +7,9 @@ import GroupIcon from '@mui/icons-material/Group';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { Attachment, ModeComment } from '@mui/icons-material';
-function CardItem({temporaryHideMedia}) {
-  if(temporaryHideMedia){
-    return (
-      <Card sx={{ 
-        cursor:'pointer',
-        boxShadow:'0 1px 1px rgba(0,0,0,0.2)',
-        overflow:'unset',
-        margin:0
-      }}>
-        
-        <CardContent sx={{p:1.5, '&:last-child': { p: 1.5 }}}>
-          <Typography >Du an The Global City test 01</Typography>                 
-        </CardContent>
-      </Card>
-    )
+function CardItem({card}) {
+  const shouldShowCardActions = ()=>{
+    return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
   }
   return (
       <Card sx={{ 
@@ -30,20 +18,18 @@ function CardItem({temporaryHideMedia}) {
           overflow:'unset',
           margin:0
         }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image="https://duantheglobalcity.vn/wp-content/uploads/2022/03/du-an-the-global-city.jpg"
-            title="green iguana"
-          />
+          {card?.cover && (<CardMedia sx={{ height: 140 }}image={card?.cover}/>
+          )}      
           <CardContent sx={{p:1.5, '&:last-child': { p: 1.5 }}}>
-            <Typography >Du an The Global City</Typography>                 
+            <Typography >{card?.title}</Typography>                 
           </CardContent>
-          <CardActions sx={{p:'0 4px 8px 4px'}}>
-            <Button startIcon={<GroupIcon />} size="small">20</Button>
-            <Button startIcon={<ModeComment />} size="small">20</Button>
-            <Button startIcon={<Attachment />} size="small">20</Button>
-            
-          </CardActions>
+          {shouldShowCardActions() && (
+            <CardActions sx={{p:'0 4px 8px 4px'}}>  
+            {!!card?.memberIds?.length && <Button startIcon={<GroupIcon />} size="small">{card?.memberIds?.length}</Button>}
+            {!!card?.comments?.length && <Button startIcon={<ModeComment />} size="small">{card?.comments?.length}</Button>}         
+            {!!card?.attachments?.length && <Button startIcon={<Attachment />} size="small">{card?.attachments?.length}</Button>}          
+            </CardActions>
+          )}         
         </Card>
   )
 }

@@ -16,8 +16,8 @@ import { Button } from '@mui/material';
 import { Attachment, DragHandle, ModeComment } from '@mui/icons-material';
 import ListCards from './ListCards/ListCards';
 import Box from '@mui/material/Box';
-
-function Column() {
+import { mapOrder } from '~/utils/sorts';
+function Column({column}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -26,6 +26,7 @@ function Column() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+    const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   return (
     
     <Box sx={{
@@ -45,7 +46,7 @@ function Column() {
             alignItems:'center',
             justifyContent: 'space-between'
           }}>
-          <Typography variant = 'h6' sx={{fontSize:'1 rem',cursor:'pointer'}}>Column title</Typography>
+          <Typography variant = 'h6' sx={{fontSize:'1 rem',cursor:'pointer'}}>{column?.title}</Typography>
           <Box>
             <Tooltip title="More options">
             <ExpandMoreIcon
@@ -106,7 +107,7 @@ function Column() {
           </Box>
         </Box>
         {/*Box list card */}
-          <ListCards/>
+          <ListCards cards={orderedCards}/>
           {/*Box footer */}
           <Box sx={{
             height: (theme)=> theme.projectCustom.columnFooterHeight,

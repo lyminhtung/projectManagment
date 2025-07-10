@@ -3,7 +3,7 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import CardItem from './Card/Card';
 
- function ListCards() {
+ function ListCards({cards}) {
   return (
     <Box sx={{
         p:'0 5px',
@@ -30,13 +30,8 @@ import CardItem from './Card/Card';
           backgroundColor:'#dfc2cf',
         }
       }}>  
-        <CardItem/>
-        <CardItem temporaryHideMedia/>
-        <CardItem temporaryHideMedia/>
-        <CardItem temporaryHideMedia/>
-        <CardItem temporaryHideMedia/>
-        <CardItem temporaryHideMedia/>
-        <CardItem temporaryHideMedia/>
+        {cards?.map(card=><CardItem key={card._id} card={card}/>)}
+
       </Box>
   )
 }
