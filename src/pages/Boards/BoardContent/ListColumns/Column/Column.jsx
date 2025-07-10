@@ -21,15 +21,17 @@ import {useSortable} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 
 function Column({column}) {
-    const {attributes,listeners,setNodeRef,transform,transition,} = useSortable({
+    const {attributes,listeners,setNodeRef,transform,transition,isDragging} = useSortable({
       id: column._id,
       data:{...column}
     });
     
     const dndKitColumnStyle = {
-      touchAction: 'none',
+      // touchAction: 'none',
       transform: CSS.Translate.toString(transform),
       transition,
+      height: '100%',
+      opacity: isDragging ? 0.5: undefined,
     };
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,11 +43,9 @@ function Column({column}) {
       setAnchorEl(null);
     };
     const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
-  return (  
-    <Box 
-        ref={setNodeRef}
-        style={dndKitColumnStyle}
-        {...attributes}
+  return (
+    <div ref={setNodeRef} style={dndKitColumnStyle} {...attributes} >
+      <Box 
         {...listeners}
         sx={{
         maxWidth:'300px',
@@ -141,6 +141,7 @@ function Column({column}) {
             </Tooltip>
           </Box>
       </Box>
+    </div>  
   )
 }
 
