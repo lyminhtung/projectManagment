@@ -71,6 +71,7 @@ function AppBar() {
                 </Button>
             </Box>               
         </Box>
+        <Box sx={{display: 'flex', alignItems: 'center', gap:2}}>
         <Box sx={{display: 'flex', alignItems:'center', gap:2}}>
             <TextField id="outlined-search" 
               label="Search field" 
@@ -134,6 +135,8 @@ function AppBar() {
             </Tooltip>
         </Box>
         <Profile/>
+        </Box>
+        
     </Box>
     );
   
