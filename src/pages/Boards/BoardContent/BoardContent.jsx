@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import ListColumn from './ListColumns/ListColumn';
 import { mapOrder } from '~/utils/sorts';
-import {DndContext,PointerSensor,useSensor,useSensors,MouseSensor,TouchSensor,DragOverlay,defaultDropAnimationSideEffects} from '@dnd-kit/core';
+import {DndContext,PointerSensor,useSensor,useSensors,MouseSensor,TouchSensor,DragOverlay,defaultDropAnimationSideEffects,closestCorners} from '@dnd-kit/core';
 import {useState, useEffect} from 'react';
 import {arrayMove} from '@dnd-kit/sortable';
 import Column from './ListColumns/Column/Column';
@@ -159,7 +159,10 @@ function BoardContent({board}) {
   }
   return (
     <DndContext 
+    // cam bien 
     sensors={sensors}
+    // thuat toan phat hien va cham giua cac phan tu fix loi khi keo card qua 2 column khac nhau khi card qua to
+    collisionDetection={closestCorners}
     onDragStart={handleDragStart}
     onDragOver={handleDragOver}
     onDragEnd={handleDragEnd} 
