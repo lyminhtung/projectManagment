@@ -38,6 +38,7 @@ function BoardContent({board}) {
   const [activeDragItemId, setActiveDragItemId] = useState(null)
   const [activeDragItemType, setActiveDragItemType] = useState(null)
   const [activeDragItemData, setActiveDragItemData] = useState(null)
+  const [oldColumnWhenDraggingCard, setOldColumnWhenDraggingCard] = useState(null)
   //Khi board thay doi, cap nhat lai state ban dau
   useEffect(() => {
     const orderedColumns = mapOrder(board?.columns, board?.columnOrderIds, '_id')
@@ -54,6 +55,10 @@ function BoardContent({board}) {
     setActiveDragItemId(event?.active?.id)
     setActiveDragItemType(event?.active?.data?.current?.columnId ? ACTIVE_DRAG_ITEM_TYPE.CARD : ACTIVE_DRAG_ITEM_TYPE.COLUMN)
     setActiveDragItemData(event?.active?.data?.current)
+    // Neu la keo card thi moi thuc hien hanh dong sset gia tri oldColumn
+    if (event?.active?.data?.current?.columnId){
+      setOldColumnWhenDraggingCard(findColumnByCardId(event?.active?.id))
+  }
   }
   // Trigger trong qua trinh keo mot phan tu
   const handleDragOver = (event) =>{
@@ -116,36 +121,71 @@ function BoardContent({board}) {
   }
   // Trigger Khi ket thuc hanh dong keo mot phan tu(drop)
   const handleDragEnd = (event) => {
-    
-    if(activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.CARD){
-      // console.log('hanh dong keo tha card tam thoi khong lam gi')
-      return;
-      
-    }
-
-    // console.log('drag end',event);
     //lay thang active va thang over tu trong event cua dnd
     const {active,over} = event;
+    // console.log('drag end',event);
     // Can dam bao neu khong ton tai active hoac over (khi keo ra khoi pham vi container) thi khong lam gi tranh crash trang 
     if(!active||!over) return;
-    if(active.id !== over.id){
-      //lay vi tri tu thang active
-      const oldIndex = orderedColumnsState.findIndex(c => c._id === active.id);
-      //lay vi tri tu thang over
-      const newIndex = orderedColumnsState.findIndex(c => c._id === over.id);
-      //sap xep lai theo vi tri moi
-      const dndOrderedColumns = arrayMove(orderedColumnsState, oldIndex, newIndex);
-      // Sau se xu li API
-      // const dndOrderedColumnIds = dndOrderedColumns.map(c => c._id);
-      // console.log('dndOrderedColumns',dndOrderedColumns);
-      // console.log('dndOrderedColumnIds',dndOrderedColumnIds);
+    // Xu ly logic khi keo tha card
+    if(activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.CARD){
+      // activeDraggingCard: la cai card dang duoc keo
+    const {id: activeDraggingCardId, data:{current: activeDraggingCardData}} = active
+    // overCard: la cai card duoc tuong tac voi card dang duoc keo
+    const {id: overCardId} = over
+    // Tim 2 cai columns theo cardId
+    const activeColumn= findColumnByCardId(activeDraggingCardId)
+    const overColumn= findColumnByCardId(overCardId)
+    // neu khong tim thay thi khong lam gi tranh crash trang
+    if(!activeColumn || !overColumn) return
+    //Hanh dong keo tha card giua 2 column khac nhau
+    // Phai dung toi oldColumnWhenDraggingCard._id (set vao state tu buoc handleDragStart) chu khong phai activeData trong scope handleDragOver nay vi sau khi qua onDragOver thi no se thay doi gia tri cua activeData thi state cua card da bi cap nhap mot lan roi
+    if(oldColumnWhenDraggingCard._id !== overColumn._id){
+      console.log('hanh dong keo tha card giua 2 column khac nhau')
+    }else{
+      // Hanh dong keo tha card trong cung 1 column
+      //lay vi tri cu tu thang oldColumnWhenDraggingCard
+      const oldCardIndex = oldColumnWhenDraggingCard?.cards?.findIndex(c => c._id === activeDragItemId);
+      //lay vi tri moi tu thang over
+      const newCardIndex = overColumn?.cards?.findIndex(c => c._id === overCardId);
 
-      //Cap nhap lai state ban dau sau khi da sap xep
-      setOrderedColumnsState(dndOrderedColumns);
+      const dndOrderedCard = arrayMove(oldColumnWhenDraggingCard?.cards, oldCardIndex, newCardIndex);
+      setOrderedColumnsState(prev =>{
+        // clone mang OrderedColumnsState cu ra mot cai moi de xu ly data roi return - cap nhap lai OrderedColumnsState moi
+        const nextColumns = cloneDeep(prev)
+        // tim toi cai column ma chung ta dang tha
+        const targetColumn = nextColumns.find(column => column._id === overColumn._id)
+        // cap nhap lai 2 gia tri moi la card va cardOrderIds trong cai targetColumn
+        targetColumn.cards = dndOrderedCard
+        targetColumn.cardOrderIds = dndOrderedCard.map(card => card._id)
+        console.log('targetColumn',targetColumn);
+        return nextColumns
+      })
     }
+    }
+    // Xu ly logic khi keo tha column trong mot cai boardContent
+    if(activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN){
+      if(active.id !== over.id){
+        //lay vi tri cu tu thang active
+        const oldColumnIndex = orderedColumnsState.findIndex(c => c._id === active.id);
+        //lay vi tri moi tu thang over
+        const newColumnIndex = orderedColumnsState.findIndex(c => c._id === over.id);
+        //Dung arrayMove cua thang dnd-kit de sap xep lai mang columns ban dau
+        const dndOrderedColumns = arrayMove(orderedColumnsState, oldColumnIndex, newColumnIndex);
+        // Sau se xu li API
+        // const dndOrderedColumnIds = dndOrderedColumns.map(c => c._id);
+        // console.log('dndOrderedColumns',dndOrderedColumns);
+        // console.log('dndOrderedColumnIds',dndOrderedColumnIds);
+  
+        //Cap nhap lai state ban dau sau khi da sap xep
+        setOrderedColumnsState(dndOrderedColumns);
+      }
+      
+    }    
+    // Nhung giu lieu sau khi keo tha luon phai dua ve gia tri null mac dinh ban dau
     setActiveDragItemId(null)
     setActiveDragItemType(null)
     setActiveDragItemData(null)
+    setOldColumnWhenDraggingCard(null)
   }
   //Animation khi tha mot phan tu
   const dropAnimation ={
