@@ -30,6 +30,7 @@ function Column({column}) {
       // touchAction: 'none',
       transform: CSS.Translate.toString(transform),
       transition,
+      //Chieu cao phai luon max 100% vi neu khong se loi luc keo column ngan qua mot cai column dai thi phai keo o khu vuv giua rat kho chiu
       height: '100%',
       opacity: isDragging ? 0.5: undefined,
     };
@@ -44,6 +45,7 @@ function Column({column}) {
     };
     const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   return (
+    //boc dive o day de khong bi loi keo column len tren no bi loi flickering
     <div ref={setNodeRef} style={dndKitColumnStyle} {...attributes} >
       <Box 
         {...listeners}
