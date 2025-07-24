@@ -1,96 +1,88 @@
-import { BorderColor } from '@mui/icons-material';
-// import { cyan, deepOrange, orange, teal } from '@mui/material/colors';
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
-const APP_BAR_HEIGHT='58px'
-const BOARD_BAR_HEIGHT='60px'
-const BOARD_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGHT})`;
-const COLUMN_HEADER_HEIGHT='50px'
-const COLUMN_FOOTER_HEIGHT='50px'
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
+const APP_BAR_HEIGHT = '58px'
+const BOARD_BAR_HEIGHT = '60px'
+const BOARD_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGHT})`
+const COLUMN_HEADER_HEIGHT = '50px'
+const COLUMN_FOOTER_HEIGHT = '56px'
+
 const theme = extendTheme({
-  projectCustom:{
-    appBarHeight:APP_BAR_HEIGHT,
-    boardBarHeight:BOARD_BAR_HEIGHT,
-    boardContentHeight:BOARD_CONTENT_HEIGHT,
-    columnHeaderHeight:COLUMN_HEADER_HEIGHT,
-    columnFooterHeight:COLUMN_FOOTER_HEIGHT
+  trello: {
+    appBarHeight: APP_BAR_HEIGHT,
+    boardBarHeight: BOARD_BAR_HEIGHT,
+    boardContentHeight: BOARD_CONTENT_HEIGHT,
+    columnHeaderHeight: COLUMN_HEADER_HEIGHT,
+    columnFooterHeight: COLUMN_FOOTER_HEIGHT
   },
-  // colorSchemes: {
-  //   light: {
-  //     palette: {
-  //       primary: teal,
-  //       secondary: deepOrange,
-  //     },
-  //   },
-  //   dark: {
-  //     palette: {        
-  //       primary: cyan,
-  //       secondary: orange
-  //     },
-  //   },
-  // },
-   components: {
-    MuiPaper: {
+  colorSchemes: {
+    // light: {
+    //   }
+    // },
+    // dark: {
+    // }
+  },
+  components: {
+    MuiCssBaseline: {
       styleOverrides: {
-        root: {
-            marginTop:'30px'
-          
-        },
-      },
+        body: {
+          '*::-webkit-scrollbar': {
+            width: '8px',
+            height: '8px'
+          },
+          '*::-webkit-scrollbar-thumb': {
+            backgroundColor: '#dcdde1',
+            borderRadius: '8px'
+          },
+          '*::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: 'white'
+          }
+        }
+      }
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform:'none',
-          borderWidth:'0.5px',
-          
-        },
-      },
+          textTransform: 'none',
+          borderWidth: '0.5px',
+
+          '&:hover': {
+            borderWidth: '0.5px'
+          }
+        }
+      }
     },
-    MuiOutlinedInput: {
+    MuiInputLabel: {
       styleOverrides: {
-        root:  {
-          // '&.MuiOutlinedInput-notchedOutline':{
-          //   borderColor: 'primary.main !important'
-          // },
-          // '&:hover':{
-          //   '.MuiOutlinedInput-notchedOutline':{
-          //     boderColor: 'primary.main !important'
-          //   }
-          // },
-          '& fieldset':{
-            borderWidth:'0.5px !important'
-          }          
-        },
-      },
+        root: {
+          fontSize: '0.875rem'
+        }
+      }
     },
     MuiTypography: {
       styleOverrides: {
         root: {
-          '&.MuiTypography-body1':{
-            fontSize:'0.875rem'
+          '&.MuiTypography-body1': {
+            fontSize: '0.875rem'
           }
         }
       }
     },
-    MuiCssBaseline: {
+    MuiOutlinedInput: {
       styleOverrides: {
-        body: {
-          '*::-webkit-scrollbar':{
-            width:'8px',
-            height:'8px'
+        root: {
+          fontSize: '0.875rem',
+          '& fieldset': {
+            borderWidth: '0.5px !important'
           },
-          '*::-webkit-scrollbar-thumb':{
-            backgroundColor:'#dcdde1',
-            borderRadius:'4px'
+          '&:hover fieldset': {
+            borderWidth: '1px !important'
           },
-          '*::-webkit-scrollbar-thumb:hover':{
-            backgroundColor:'white',
+          '&.Mui-focused fieldset': {
+            borderWidth: '1px !important'
           }
         }
       }
     }
-  },
-  
-});
+  }
+})
 
-export default theme;
+export default theme
